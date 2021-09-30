@@ -1,0 +1,16 @@
+---
+- name: This play book install apach2
+  hosts: dbserver
+  become: true
+  tasks:
+  - name: insall apache2
+    apt: 
+      name: apache2 
+      update_cache: yes
+      state: present
+
+  - name: start the service
+    service:
+      name: apache2
+      state: started
+

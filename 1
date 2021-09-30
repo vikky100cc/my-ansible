@@ -1,0 +1,14 @@
+---
+- name: This Playbook is creating file and directory
+  hosts: all
+  become: true
+  tasks:
+  - name: Creating test file
+    file:
+      path: /home/ansadmin/test1
+      state: touch
+
+  - name: Creating Directory
+    file: 
+      path: /home/ansadmin/test_dir
+      state: directory

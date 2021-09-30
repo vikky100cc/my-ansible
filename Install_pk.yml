@@ -1,0 +1,16 @@
+---
+- name: this playbook will install pkg
+  hosts: all
+  become: true
+  tasks:
+  - name: Creating git in amazon-linux
+    yum:
+      name: git
+      state: installed
+    when: ansible_os_family == "RedHat"
+ 
+  - name: Creating git in ubuntu
+    apt:
+      name: git
+      state: present
+    when: ansible_os_family == "Debian"

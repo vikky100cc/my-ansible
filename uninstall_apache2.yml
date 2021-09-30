@@ -1,0 +1,14 @@
+---
+- name: This play book install apach2
+  hosts: dbserver
+  become: true
+  tasks:
+  - name: stop the service
+    service:
+      name: apache2
+      state: stopped
+  - name: uninsall apache2
+    apt: 
+      name: apache2 
+      update_cache: yes
+      state: absent

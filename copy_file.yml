@@ -1,0 +1,11 @@
+---
+- name: Copying file from remote to local
+  hosts: all
+  become: true
+  tasks:
+  - name: copying yml file
+    copy:
+      src: /opt/ansible/index.html
+      dest: /home/ansadmin/index.html
+      owner: Dinesh
+      mode: 0777
